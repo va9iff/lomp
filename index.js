@@ -10,6 +10,7 @@ window.from = (path, fun) => {
 window.send = exports => {
 	lomp.entries[lomp.current].exports = exports
 	lomp.entries[lomp.current].fun(exports)
+	lomp.current++
 }
 
 from("./moduleA.js", msg => {
@@ -22,7 +23,15 @@ from("./moduleA.js", msg => {
 	msg.message = "fasadistan"
 	console.log(msg)
 })
+from("./moduleB.js", msg => {
+	console.log('from b er')
+	console.log(msg)
+})
 from("./moduleA.js", msg => {
 	console.log("third from")
+	console.log(msg)
+})
+from("./moduleB.js", msg => {
+	console.log('from b er 2')
 	console.log(msg)
 })
