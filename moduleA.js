@@ -1,9 +1,15 @@
+let { send } = document.currentScript
+
 console.log('A has run')
 // document.currentScript.main = script => {
 
 // }
 
-let send = document.currentScript.send
+let pak = 88
+
+let myVar = "AAA"
+console.log(myVar)
+setTimeout(()=> {console.log("should be A", myVar)}, 1000);
 
 from("./moduleB.js", arg => {
 	console.log("A fun")
@@ -13,3 +19,5 @@ from("./moduleB.js", arg => {
 	})
 })
 
+
+console.log(send)

@@ -28,6 +28,7 @@ window.from = (path, fun) => {
 	loaded[path] ??= loadScript(path)
 	// loaded[path].addEventListener("load", e => fun(e.target))
 	loaded[path].send = arg => fun(arg)
+	// loaded[path].type = "module"
 	loaded[path].prop = "fasad"
 }
 window.send = exports => {
