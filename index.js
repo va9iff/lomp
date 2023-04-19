@@ -38,10 +38,10 @@ from("./moduleA.js", msg => {
 
 
 // just a thing that would make it nicer
-from("./moduleA.js", "moduleB.js", (msgA, { msgPropB }) => {
-	console.log(msgA.msgPropA)
-	console.log(msgPropB)
-})
+// from("./moduleA.js", "moduleB.js", (msgA, { msgPropB }) => {
+	// console.log(msgA.msgPropA)
+	// console.log(msgPropB)
+// })
 
 
 /*
