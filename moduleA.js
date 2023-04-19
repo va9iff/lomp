@@ -3,11 +3,13 @@ console.log('A has run')
 
 // }
 
+let send = document.currentScript.send
+
 from("./moduleB.js", arg => {
 	console.log("A fun")
 	console.log(arg)
+	send({
+		message: "fasad"
+	})
 })
 
-document.currentScript.send({
-	message: "fasad"
-})
