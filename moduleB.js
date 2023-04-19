@@ -4,7 +4,7 @@ document.currentScript.send({
 })
 
 
-console.log(send)
+// console.log(send)
 
 
 let pak = 'darsd'

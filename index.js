@@ -21,6 +21,27 @@ window.addEventListener("load", e => {
 	// window.loaded.reverse().map(entry=>entry.fun(entry.exports))
 })
 
+let sleep = t => new Promise((res, rej)=>{
+	setTimeout(res, t)
+	}
+)
+
+
+window.load = path => new Promise((res, rej)=>{
+	let script = loadScript(path)
+	script.send =  arg => {
+		 res(arg)
+	}
+
+	// setTimeout(res, t)
+	}
+)
+
+
+// sleep(555).then(r => {
+	// console.log('done')
+// })
+
 window.from = (path, fun) => {
 	// let entry = window.pendings.find(entry => entry.path == path)
 	window.pendings.push({fun, path})
@@ -44,10 +65,13 @@ window.send = exports => {
 	// console.trace(currentScript)
 }
 
+
 console.log('hi')
-from("./moduleA.js", arg => {
-	let { msg } = arg
-	console.log("index fun")
-	console.log(arg)
-})
+;(
+	async arg => {
+		arg = await load("./moduleA.js")
+		let { msg } = arg
+		console.log("index fun")
+		console.log(arg)
+})()
 

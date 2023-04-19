@@ -1,3 +1,4 @@
+(async ()=>{
 let { send } = document.currentScript
 
 console.log('A has run')
@@ -11,13 +12,14 @@ let myVar = "AAA"
 console.log(myVar)
 setTimeout(()=> {console.log("should be A", myVar)}, 1000);
 
-from("./moduleB.js", arg => {
-	console.log("A fun")
-	console.log(arg)
-	send({
-		message: "fasad"
-	})
+
+let arg = await load("./moduleB.js")
+console.log("A fun")
+console.log(arg)
+send({
+	message: "fasad"
 })
 
 
-console.log(send)
+// console.log(send)
+})()
