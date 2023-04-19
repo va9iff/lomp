@@ -1,13 +1,13 @@
 console.log('A has run')
-let currentScript = document.currentScript
+// document.currentScript.main = script => {
 
-setTimeout(function() {console.trace('crrrrrrrrrrrrrrrr', currentScript)}, 1000);
+// }
 
-from("./moduleB.js", (script) => {
-	let {msg} = script
+from("./moduleB.js", arg => {
 	console.log("A fun")
-	console.log(script)
-	script.exports = {
-		message: "fasad"
-	}
+	console.log(arg)
+})
+
+document.currentScript.send({
+	message: "fasad"
 })
