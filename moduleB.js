@@ -1,12 +1,16 @@
-(()=>{
-document.currentScript.send({
-	masaja: 7
-})
+window.main = async send =>{	
+	console.log('B has run')
+
+	;(()=>{
+	send({
+		masaja: 7
+	})
 
 
-// console.log(send)
+	// console.log(send)
 
 
-let pak = 'darsd'
+	let pak = 'darsd'
 
-console.log(pak)})()
+	console.log(pak)})()
+}
