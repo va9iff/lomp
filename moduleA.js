@@ -1,25 +1,15 @@
 window.main = async send => {
-	console.log('A has run')
-	// document.currentScript.main = script => {
-
-	// }
-
-	let pak = 88
-
-	let myVar = "AAA"
-	console.log(myVar)
-	setTimeout(()=> {console.log("should be A", myVar)}, 1000);
-
-
+	console.log('A:')
 	console.log('<B')
-	let arg = await load("./moduleB.js")
+	let maxAge = await load("./moduleB.js") 
+	//~= import maxAge from "moduleB.js"
 	console.log('B>')
-	console.log("A fun")
-	console.log(arg)
-	send({
-		message: "fasad"
-	})
+	console.log('data from B', maxAge)
 
+	class Platypus{
+		name = "Perry"
+		age = maxAge
+	}
 
-	// console.log(send)
+	send({ Platypus }) //~= export { Platypus }
 }
